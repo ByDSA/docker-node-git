@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+    server:
+      build:
+        context: .
+        dockerfile: Dockerfile
+        args:
+            GIT_PROJECT: $GIT_PROJECT
+            FOLDER: $FOLDER
+      image: ${CONTAINER}
+      container_name: ${CONTAINER}
+      ports:
+        - "${PORT}:80"
+      env_file: .env
+      volumes:
+        - ./files:/usr/src/app/${FOLDER}/files
