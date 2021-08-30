@@ -11,8 +11,8 @@ RUN apk update && apk upgrade && \
 ARG GIT_PROJECT
 RUN git clone ${GIT_PROJECT} .
 
-ARG SUBPATH
-WORKDIR /usr/src/app/${SUBPATH}
+ARG FOLDER
+WORKDIR /usr/src/app/${FOLDER}
 RUN npm ci
 RUN npm run build
 
